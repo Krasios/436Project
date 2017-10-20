@@ -15,6 +15,7 @@
 		81CE76FF1F9A9025003819E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81CE76FD1F9A9025003819E9 /* LaunchScreen.storyboard */; };
 		81CE770A1F9A9025003819E9 /* MorseSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE77091F9A9025003819E9 /* MorseSenderTests.swift */; };
 		81CE77151F9A9025003819E9 /* MorseSenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE77141F9A9025003819E9 /* MorseSenderUITests.swift */; };
+		81CE77231F9A9664003819E9 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 81CE77221F9A9664003819E9 /* button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		81CE77101F9A9025003819E9 /* MorseSenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseSenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CE77141F9A9025003819E9 /* MorseSenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseSenderUITests.swift; sourceTree = "<group>"; };
 		81CE77161F9A9025003819E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81CE77221F9A9664003819E9 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = ../../button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				81CE76F61F9A9024003819E9 /* SecondViewController.swift */,
 				81CE76F81F9A9024003819E9 /* Main.storyboard */,
 				81CE76FB1F9A9025003819E9 /* Assets.xcassets */,
+				81CE77221F9A9664003819E9 /* button.png */,
 				81CE76FD1F9A9025003819E9 /* LaunchScreen.storyboard */,
 				81CE77001F9A9025003819E9 /* Info.plist */,
 			);
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81CE76FF1F9A9025003819E9 /* LaunchScreen.storyboard in Resources */,
+				81CE77231F9A9664003819E9 /* button.png in Resources */,
 				81CE76FC1F9A9025003819E9 /* Assets.xcassets in Resources */,
 				81CE76FA1F9A9024003819E9 /* Main.storyboard in Resources */,
 			);

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class DecodeViewController: UIViewController {
 
+    @IBOutlet weak var decodeBtn: UIButton!
+    @IBOutlet weak var redBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -8,8 +8,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class TransmitViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var transmitBtn: UIButton!
+    @IBOutlet weak var messageField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

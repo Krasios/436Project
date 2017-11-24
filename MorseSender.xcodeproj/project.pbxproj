@@ -15,6 +15,8 @@
 		81CE76FF1F9A9025003819E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81CE76FD1F9A9025003819E9 /* LaunchScreen.storyboard */; };
 		81CE770A1F9A9025003819E9 /* MorseSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE77091F9A9025003819E9 /* MorseSenderTests.swift */; };
 		81CE77151F9A9025003819E9 /* MorseSenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE77141F9A9025003819E9 /* MorseSenderUITests.swift */; };
+		D212E0581FC79AC100E87377 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E0571FC79AC100E87377 /* MPCManager.swift */; };
+		D212E05A1FC7C1F500E87377 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E0591FC7C1F500E87377 /* MessageCell.swift */; };
 		D21A0E3A1FA9917E00732F1C /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21A0E391FA9917E00732F1C /* ConnectViewController.swift */; };
 		D21A0E3C1FA9919500732F1C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21A0E3B1FA9919500732F1C /* ChatViewController.swift */; };
 		D23183091FB2E2190096DBAC /* DeviceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23183081FB2E2190096DBAC /* DeviceTVCell.swift */; };
@@ -52,6 +54,8 @@
 		81CE77101F9A9025003819E9 /* MorseSenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseSenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CE77141F9A9025003819E9 /* MorseSenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseSenderUITests.swift; sourceTree = "<group>"; };
 		81CE77161F9A9025003819E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D212E0571FC79AC100E87377 /* MPCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
+		D212E0591FC7C1F500E87377 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		D21A0E391FA9917E00732F1C /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		D21A0E3B1FA9919500732F1C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D23183081FB2E2190096DBAC /* DeviceTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTVCell.swift; sourceTree = "<group>"; };
@@ -106,12 +110,14 @@
 			isa = PBXGroup;
 			children = (
 				81CE76F21F9A9024003819E9 /* AppDelegate.swift */,
+				D212E0591FC7C1F500E87377 /* MessageCell.swift */,
 				81CE76F41F9A9024003819E9 /* TransmitViewController.swift */,
 				81CE76F61F9A9024003819E9 /* DecodeViewController.swift */,
 				D21A0E391FA9917E00732F1C /* ConnectViewController.swift */,
 				D21A0E3B1FA9919500732F1C /* ChatViewController.swift */,
 				81CE76FB1F9A9025003819E9 /* Assets.xcassets */,
 				81CE76F81F9A9024003819E9 /* Main.storyboard */,
+				D212E0571FC79AC100E87377 /* MPCManager.swift */,
 				D23183081FB2E2190096DBAC /* DeviceTVCell.swift */,
 				81CE76FD1F9A9025003819E9 /* LaunchScreen.storyboard */,
 				81CE77001F9A9025003819E9 /* Info.plist */,
@@ -275,9 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81CE76F71F9A9024003819E9 /* DecodeViewController.swift in Sources */,
+				D212E05A1FC7C1F500E87377 /* MessageCell.swift in Sources */,
 				D23183091FB2E2190096DBAC /* DeviceTVCell.swift in Sources */,
 				81CE76F31F9A9024003819E9 /* AppDelegate.swift in Sources */,
 				81CE76F51F9A9024003819E9 /* TransmitViewController.swift in Sources */,
+				D212E0581FC79AC100E87377 /* MPCManager.swift in Sources */,
 				D21A0E3C1FA9919500732F1C /* ChatViewController.swift in Sources */,
 				D21A0E3A1FA9917E00732F1C /* ConnectViewController.swift in Sources */,
 			);

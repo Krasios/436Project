@@ -1,16 +1,17 @@
 //
-//  DeviceTVCell.swift
+//  MessageCell.swift
 //  MorseSender
 //
-//  Created by skariyadan on 11/7/17.
+//  Created by skariyadan on 11/23/17.
 //  Copyright © 2017 Sharon Kuang. All rights reserved.
 //
 
 import UIKit
 
-class DeviceTVCell: UITableViewCell {
+class MessageCell: UITableViewCell {
 
-    @IBOutlet weak var devName: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var content: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="width" constant="375" id="EJT-c8-Z5s"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Device" rowHeight="80" id="UdW-HB-sKj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Device" rowHeight="80" id="UdW-HB-sKj" customClass="DeviceTVCell" customModule="MorseSender" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UdW-HB-sKj" id="QSC-JE-dqL">
@@ -90,7 +90,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IJE-wn-VT9" kind="show" id="bsn-J3-YSD"/>
+                                            <outlet property="devName" destination="ss6-Rs-ou9" id="gIV-BJ-fF7"/>
+                                            <segue destination="IJE-wn-VT9" kind="show" identifier="chatPeer" id="bsn-J3-YSD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,6 +107,9 @@
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-9q-sCy">
                                 <rect key="frame" x="310" y="109" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleConnection:" destination="3gj-Lj-lBS" eventType="valueChanged" id="Cek-Mb-vgo"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGK-wb-ovc">
                                 <rect key="frame" x="53" y="165" width="268" height="30"/>
@@ -135,6 +139,9 @@
                     <tabBarItem key="tabBarItem" title="Connect" image="second" id="r9R-bj-usb"/>
                     <connections>
                         <outlet property="devices" destination="oID-P3-unp" id="ePM-UJ-I3f"/>
+                        <outlet property="myDev" destination="LWT-fi-0Mg" id="9Kp-JR-HvF"/>
+                        <outlet property="reScan" destination="kGK-wb-ovc" id="H3Q-i7-ia8"/>
+                        <outlet property="togCon" destination="Srb-9q-sCy" id="rUU-D8-MJA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byd-Xa-q5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,11 +161,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-hK-RoI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="541"/>
+                                <rect key="frame" x="0.0" y="52" width="375" height="489"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" rowHeight="75" id="OQl-2N-hIa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" rowHeight="75" id="OQl-2N-hIa" customClass="MessageCell" customModule="MorseSender" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQl-2N-hIa" id="NyU-O4-NKR">
@@ -181,6 +188,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="content" destination="BD5-L8-eCV" id="pg4-LS-Aws"/>
+                                            <outlet property="userName" destination="g1C-Ca-AJN" id="NJ5-cQ-aet"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -191,9 +202,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caB-ds-lo7">
+                                <rect key="frame" x="16" y="14" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Leave Chat"/>
+                                <connections>
+                                    <action selector="endChat:" destination="IJE-wn-VT9" eventType="touchUpInside" id="A6N-AF-4tT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="endChat" destination="caB-ds-lo7" id="2fG-h5-kKt"/>
+                        <outlet property="leave" destination="caB-ds-lo7" id="9wK-Rv-Hyg"/>
+                        <outlet property="messages" destination="TVr-hK-RoI" id="JUY-Jw-gjZ"/>
+                        <outlet property="newText" destination="ad1-xQ-UXG" id="JaQ-Gp-nP8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-Nu-LEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

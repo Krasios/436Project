@@ -10,6 +10,7 @@ import UIKit
 import MultipeerConnectivity
 
 class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, MPCManagerDelegate {
+    
     @IBOutlet weak var myDev: UITextField!
     @IBOutlet weak var reScan: UIButton!
     @IBOutlet weak var togCon: UISwitch!
@@ -17,13 +18,13 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
-        devices.delegate = self
-        devices.dataSource = self
+        self.devices.delegate = self
+        self.devices.dataSource = self
         appDelegate.mpcManager.delegate = self
         // Do any additional setup after loading the view.
-        togCon.isOn = true
-        appDelegate.mpcManager.advertiser.startAdvertisingPeer()
+        togCon.isOn = false
         appDelegate.mpcManager.browser.startBrowsingForPeers()
+        devices.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,10 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func scanning(_ sender: Any) {
+        appDelegate.mpcManager.browser.stopBrowsingForPeers()
+        appDelegate.mpcManager.browser.startBrowsingForPeers()
+    }
     @IBAction func toggleConnection(_ sender: UISwitch) {
         if sender.isOn{
             appDelegate.mpcManager.advertiser.startAdvertisingPeer()
@@ -40,10 +45,15 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
     //tableView stuff
     func foundPeer() {
-        devices.reloadData()
+        DispatchQueue.main.async {
+            self.devices.reloadData()
+            print("reloaded\n")
+        };
+
     }
     func lostPeer() {
-        devices.reloadData()
+        DispatchQueue.main.async { self.devices.reloadData() };
+        print("dropped\n")
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -55,17 +65,17 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(appDelegate.mpcManager.foundPeers.count)
         return appDelegate.mpcManager.foundPeers.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "Device"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DeviceTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DeviceTVCell
         cell.devName.text = appDelegate.mpcManager.foundPeers[indexPath.row].displayName
         
         return cell
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPeer = appDelegate.mpcManager.foundPeers[indexPath.row] as MCPeerID
         
         appDelegate.mpcManager.browser.invitePeer(selectedPeer, to: appDelegate.mpcManager.session, withContext: nil, timeout: 20)

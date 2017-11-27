@@ -18,26 +18,27 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     var delegate: MPCManagerDelegate?
     override init() {
         super.init()
-        peer = MCPeerID(displayName: UIDevice.current.name)
+        peer = MCPeerID(displayName: "morsesender")// UIDevice.current.name)
         session = MCSession(peer: peer)
         session.delegate = self
-        browser = MCNearbyServiceBrowser(peer: peer, serviceType: "morsedecoder")
-        browser.delegate = self
         advertiser = MCNearbyServiceAdvertiser(peer: peer, discoveryInfo: nil, serviceType: "morsedecoder")
         advertiser.delegate = self
+        browser = MCNearbyServiceBrowser(peer: peer, serviceType: "morsedecoder")
+        browser.delegate = self
     }
     func newPeer(newName: String){
         session.disconnect()
         peer = MCPeerID(displayName: newName)
         session = MCSession(peer: peer)
         session.delegate = self
-        browser = MCNearbyServiceBrowser(peer: peer, serviceType: "morsedecoder")
-        browser.delegate = self
         advertiser = MCNearbyServiceAdvertiser(peer: peer, discoveryInfo: nil, serviceType: "morsedecoder")
         advertiser.delegate = self
+        browser = MCNearbyServiceBrowser(peer: peer, serviceType: "morsedecoder")
+        browser.delegate = self
     }
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         foundPeers.append(peerID)
+        print("found: \(foundPeers)")
         delegate?.foundPeer()
     }
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
@@ -52,11 +53,11 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
         print(error.localizedDescription)
     }
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser!, didReceiveInvitationFromPeer peerID: MCPeerID!, withContext context: Data!, invitationHandler: ((Bool, MCSession?) -> Void)!) {
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping ((Bool, MCSession?) -> Void)) {
         self.invitationHandler = invitationHandler
         delegate?.invitationWasReceived(fromPeer: peerID.displayName)
     }
-    func advertiser(advertiser: MCNearbyServiceAdvertiser!, didNotStartAdvertisingPeer error: Error!) {
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         print(error.localizedDescription)
     }
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {

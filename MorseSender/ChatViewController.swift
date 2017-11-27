@@ -107,7 +107,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             // Make sure that the message is other than "_end_chat_".
             if message != "_end_chat_"{
                 // Create a new dictionary and set the sender and the received message to it.
-                var messageDictionary: [String: String] = ["sender": fromPeer.displayName, "message": message]
+                let messageDictionary: [String: String] = ["sender": fromPeer.displayName, "message": message]
                 
                 // Add this dictionary to the messagesArray array.
                 messagesArray.append(messageDictionary)

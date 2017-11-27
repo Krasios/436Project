@@ -121,14 +121,21 @@ class TransmitViewController: UIViewController, UITextFieldDelegate {
         print("flashing1\n")
         let flash = AVCaptureDevice.default(for: .video)
         print("flashing2\n")
-        if let flash1 = flash {
-            for (index,duration) in morseCode.enumerated(){
-                if index%2 == 0{//light on
-                    flash1.torchMode = .on
-                    sleep(UInt32(duration))
-                }else{//light off
-                    flash1.torchMode = .off
-                    sleep(UInt32(duration))
+        if flash !=nil {
+            DispatchQueue.global(qos: .userInitiated).async{
+                let flash1 = AVCaptureDevice.default(for: .video)
+                for (index,duration) in self.morseCode.enumerated(){
+                    if index%2 == 0{//light on
+                        DispatchQueue.main.async{
+                            flash1?.torchMode = .on
+                        }
+                        Thread.sleep(forTimeInterval: TimeInterval(duration))
+                    }else{//light off
+                        DispatchQueue.main.async{
+                            flash1?.torchMode = .off
+                        }
+                        Thread.sleep(forTimeInterval: TimeInterval(duration))
+                    }
                 }
             }
         }else{

@@ -121,7 +121,7 @@ class TransmitViewController: UIViewController, UITextFieldDelegate {
         print("flashing1\n")
         let flash = AVCaptureDevice.default(for: .video)
         print("flashing2\n")
-        if flash !=nil {
+        if flash != nil {
             DispatchQueue.global(qos: .userInitiated).async{
                 let flash1 = AVCaptureDevice.default(for: .video)
                 for (index,duration) in self.morseCode.enumerated(){

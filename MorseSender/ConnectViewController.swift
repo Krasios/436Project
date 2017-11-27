@@ -70,7 +70,7 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DeviceTVCell
+        let cell : DeviceTVCell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DeviceTVCell
         cell.devName.text = appDelegate.mpcManager.foundPeers[indexPath.row].displayName
         
         return cell

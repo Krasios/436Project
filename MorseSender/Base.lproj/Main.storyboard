@@ -93,10 +93,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oID-P3-unp">
-                                <rect key="frame" x="0.0" y="203" width="375" height="415"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oID-P3-unp">
+                                <rect key="frame" x="0.0" y="228" width="375" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="415" id="6GC-Ow-wrE"/>
                                     <constraint firstAttribute="width" constant="375" id="EJT-c8-Z5s"/>
                                 </constraints>
                                 <color key="sectionIndexColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -127,7 +128,6 @@
                                         </accessibility>
                                         <connections>
                                             <outlet property="devName" destination="ss6-Rs-ou9" id="gIV-BJ-fF7"/>
-                                            <segue destination="IJE-wn-VT9" kind="show" identifier="chatPeer" id="bsn-J3-YSD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -153,6 +153,7 @@
                         <outlet property="myDev" destination="LWT-fi-0Mg" id="9Kp-JR-HvF"/>
                         <outlet property="reScan" destination="kGK-wb-ovc" id="H3Q-i7-ia8"/>
                         <outlet property="togCon" destination="Srb-9q-sCy" id="rUU-D8-MJA"/>
+                        <segue destination="IJE-wn-VT9" kind="show" identifier="chatPeer" id="dco-wt-8Jh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byd-Xa-q5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,7 +163,7 @@
         <!--Chat View Controller-->
         <scene sceneID="yiV-ak-9Lz">
             <objects>
-                <viewController id="IJE-wn-VT9" customClass="ChatViewController" customModule="MorseSender" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatControl" id="IJE-wn-VT9" customClass="ChatViewController" customModule="MorseSender" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E0A-MC-ASV"/>
                         <viewControllerLayoutGuide type="bottom" id="VDo-yB-EKr"/>
@@ -225,7 +226,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="endChat" destination="caB-ds-lo7" id="2fG-h5-kKt"/>
                         <outlet property="leave" destination="caB-ds-lo7" id="9wK-Rv-Hyg"/>
                         <outlet property="messages" destination="TVr-hK-RoI" id="JUY-Jw-gjZ"/>
                         <outlet property="newText" destination="ad1-xQ-UXG" id="JaQ-Gp-nP8"/>

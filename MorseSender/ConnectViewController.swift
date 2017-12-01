@@ -21,15 +21,12 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
         self.devices.delegate = self
         self.devices.dataSource = self
         appDelegate.mpcManager.delegate = self
-        // Do any additional setup after loading the view.
-        togCon.isOn = false
+        togCon.isOn = false;
         appDelegate.mpcManager.browser.startBrowsingForPeers()
         devices.reloadData()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func scanning(_ sender: Any) {
@@ -45,15 +42,10 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
     //tableView stuff
     func foundPeer() {
-        DispatchQueue.main.async {
-            self.devices.reloadData()
-            print("reloaded\n")
-        };
-
+        DispatchQueue.main.async { self.devices.reloadData() };
     }
     func lostPeer() {
         DispatchQueue.main.async { self.devices.reloadData() };
-        print("dropped\n")
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -72,12 +64,10 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : DeviceTVCell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DeviceTVCell
         cell.devName.text = appDelegate.mpcManager.foundPeers[indexPath.row].displayName
-        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPeer = appDelegate.mpcManager.foundPeers[indexPath.row] as MCPeerID
-        
         appDelegate.mpcManager.browser.invitePeer(selectedPeer, to: appDelegate.mpcManager.session, withContext: nil, timeout: 20)
     }
     func invitationWasReceived(fromPeer: String) {

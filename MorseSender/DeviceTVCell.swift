@@ -2,7 +2,7 @@
 //  DeviceTVCell.swift
 //  MorseSender
 //
-//  Created by skariyadan on 11/7/17.
+//  Created by skuang on 11/7/17.
 //  Copyright © 2017 Sharon Kuang. All rights reserved.
 //
 

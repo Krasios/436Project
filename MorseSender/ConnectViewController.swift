@@ -2,14 +2,14 @@
 //  ConnectViewController.swift
 //  MorseSender
 //
-//  Created by skariyadan on 10/31/17.
+//  Created by skuang on 10/31/17.
 //  Copyright © 2017 Sharon Kuang. All rights reserved.
 //
 
 import UIKit
 import MultipeerConnectivity
 
-class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, MPCManagerDelegate {
+class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate, MPCManagerDelegate{
     
     @IBOutlet weak var myDev: UITextField!
     @IBOutlet weak var reScan: UIButton!
@@ -20,6 +20,7 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         self.devices.delegate = self
         self.devices.dataSource = self
+        self.myDev.delegate = self
         appDelegate.mpcManager.delegate = self
         togCon.isOn = false;
         appDelegate.mpcManager.browser.startBrowsingForPeers()
@@ -47,9 +48,15 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
     func lostPeer() {
         DispatchQueue.main.async { self.devices.reloadData() };
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         appDelegate.mpcManager.newPeer(newName: textField.text!)
+        if togCon.isOn{
+            appDelegate.mpcManager.advertiser.startAdvertisingPeer()
+        }else{
+            appDelegate.mpcManager.advertiser.stopAdvertisingPeer()
+        }
+        appDelegate.mpcManager.browser.startBrowsingForPeers()
         return true
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -94,14 +101,5 @@ class ConnectViewController: UIViewController, UITableViewDelegate,UITableViewDa
             self.performSegue(withIdentifier: "chatPeer", sender: self)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

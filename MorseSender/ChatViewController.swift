@@ -2,7 +2,7 @@
 //  ChatViewController.swift
 //  MorseSender
 //
-//  Created by skariyadan on 10/31/17.
+//  Created by skuang on 10/31/17.
 //  Copyright © 2017 Sharon Kuang. All rights reserved.
 //
 
@@ -83,7 +83,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if sender == "self"{
                 senderLabelText = "You said:"
-                senderColor = UIColor.blue
+                senderColor = UIColor.green
             }
             else{
                 senderLabelText = sender + " said:"

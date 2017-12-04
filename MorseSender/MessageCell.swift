@@ -2,7 +2,7 @@
 //  MessageCell.swift
 //  MorseSender
 //
-//  Created by skariyadan on 11/23/17.
+//  Created by skuang on 11/23/17.
 //  Copyright © 2017 Sharon Kuang. All rights reserved.
 //
 

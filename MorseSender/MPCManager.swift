@@ -2,7 +2,7 @@
 //  MPCManager.swift
 //  MorseSender
 //
-//  Created by skariyadan on 11/23/17.
+//  Created by skuang on 11/23/17.
 //  Copyright © 2017 Sharon Kuang. All rights reserved.
 //
 
@@ -27,6 +27,8 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         browser.delegate = self
     }
     func newPeer(newName: String){
+        advertiser.stopAdvertisingPeer()
+        browser.stopBrowsingForPeers()
         session.disconnect()
         peer = MCPeerID(displayName: newName)
         session = MCSession(peer: peer)

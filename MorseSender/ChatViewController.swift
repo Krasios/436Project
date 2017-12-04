@@ -8,7 +8,7 @@
 
 import UIKit
 import MultipeerConnectivity
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var newText: UITextField!
     @IBOutlet weak var messages: UITableView!
@@ -20,9 +20,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         messages.delegate = self
         messages.dataSource = self
-        messages.estimatedRowHeight = 60.0
-        messages.rowHeight = UITableViewAutomaticDimension
-        NotificationCenter.default.addObserver(self, selector: Selector(("handleMPCReceivedDataWithNotification:")), name: NSNotification.Name(rawValue: "receivedMPCDataNotification"), object: nil)
+        newText.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(handleMPCReceivedDataWithNotification), name: NSNotification.Name(rawValue: "receivedMPCDataNotification"), object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +29,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y - 200, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        })
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y + 200, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        })
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
         let messageDictionary: [String: String] = ["message": textField.text!]
@@ -91,7 +100,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-    func handleMPCReceivedDataWithNotification(notification: Notification) {
+    @objc func handleMPCReceivedDataWithNotification(notification: Notification) {
+        print(notification)
         // Get the dictionary containing the data and the source peer from the notification.
         let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
         
@@ -114,6 +124,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 // Reload the tableview data and scroll to the bottom using the main thread.
                 OperationQueue.main.addOperation({ () -> Void in
+                    self.messages.reloadData()
                     self.updateTableview()
                 })
             }

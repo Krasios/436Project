@@ -172,16 +172,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-hK-RoI">
-                                <rect key="frame" x="0.0" y="52" width="375" height="489"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-hK-RoI">
+                                <rect key="frame" x="0.0" y="65" width="375" height="489"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="489" id="NxT-wc-7hb"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" rowHeight="75" id="OQl-2N-hIa" customClass="MessageCell" customModule="MorseSender" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" rowHeight="80" id="OQl-2N-hIa" customClass="MessageCell" customModule="MorseSender" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQl-2N-hIa" id="NyU-O4-NKR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1C-Ca-AJN">
@@ -207,23 +209,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-xQ-UXG">
-                                <rect key="frame" x="22" y="572" width="326" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caB-ds-lo7">
-                                <rect key="frame" x="16" y="14" width="114" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caB-ds-lo7">
+                                <rect key="frame" x="16" y="14" width="77" height="30"/>
                                 <state key="normal" title="Leave Chat"/>
                                 <connections>
                                     <action selector="endChat:" destination="IJE-wn-VT9" eventType="touchUpInside" id="A6N-AF-4tT"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-xQ-UXG">
+                                <rect key="frame" x="24" y="605" width="326" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="caB-ds-lo7" firstAttribute="leading" secondItem="SyO-Vm-6lE" secondAttribute="leading" constant="16" id="8Xs-OM-xed"/>
+                            <constraint firstItem="caB-ds-lo7" firstAttribute="top" secondItem="E0A-MC-ASV" secondAttribute="bottom" constant="-6" id="Bet-au-wNM"/>
+                            <constraint firstItem="TVr-hK-RoI" firstAttribute="width" secondItem="SyO-Vm-6lE" secondAttribute="width" id="Gxq-8H-fvV"/>
+                            <constraint firstItem="TVr-hK-RoI" firstAttribute="top" secondItem="E0A-MC-ASV" secondAttribute="bottom" constant="45" id="qbc-Nc-FTM"/>
+                            <constraint firstItem="TVr-hK-RoI" firstAttribute="centerX" secondItem="SyO-Vm-6lE" secondAttribute="centerX" id="sqH-9s-FnK"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="leave" destination="caB-ds-lo7" id="9wK-Rv-Hyg"/>
@@ -233,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-Nu-LEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="1513.4932533733136"/>
+            <point key="canvasLocation" x="-820.5" y="1512.5"/>
         </scene>
         <!--TransmitVC-->
         <scene sceneID="WRP-mO-aay">

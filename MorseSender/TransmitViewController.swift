@@ -118,9 +118,9 @@ class TransmitViewController: UIViewController, UITextFieldDelegate {
         //morseCode.popLast()
     }
     @IBAction func transmit(_ sender: UIButton) {
-        print("flashing1\n")
+        //print("flashing1\n")
         let flash = AVCaptureDevice.default(for: .video)
-        print("flashing2\n")
+        //print("flashing2\n")
         if flash != nil {
             DispatchQueue.global(qos: .userInitiated).async{
                 let flash1 = AVCaptureDevice.default(for: .video)
@@ -139,7 +139,7 @@ class TransmitViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }else{
-            print("no torch\n")
+            //print("no torch\n")
             DispatchQueue.global(qos: .userInitiated).async{
                 for (index,duration) in self.morseCode.enumerated(){
                 if index%2 == 0{//light on

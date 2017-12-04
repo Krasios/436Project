@@ -19,7 +19,7 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     override init() {
         super.init()
         peer = MCPeerID(displayName: "morsesender")// UIDevice.current.name)
-        session = MCSession(peer: peer)
+        session = MCSession(peer: peer, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.none)
         session.delegate = self
         advertiser = MCNearbyServiceAdvertiser(peer: peer, discoveryInfo: nil, serviceType: "morsedecoder")
         advertiser.delegate = self

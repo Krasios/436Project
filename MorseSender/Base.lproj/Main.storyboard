@@ -39,6 +39,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Decode"/>
+                                <connections>
+                                    <action selector="decode:" destination="kGb-Jb-m0o" eventType="touchUpInside" id="4Fc-W0-qby"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

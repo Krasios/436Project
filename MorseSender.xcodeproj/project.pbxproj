@@ -20,6 +20,7 @@
 		D21A0E3A1FA9917E00732F1C /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21A0E391FA9917E00732F1C /* ConnectViewController.swift */; };
 		D21A0E3C1FA9919500732F1C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21A0E3B1FA9919500732F1C /* ChatViewController.swift */; };
 		D23183091FB2E2190096DBAC /* DeviceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23183081FB2E2190096DBAC /* DeviceTVCell.swift */; };
+		D29691031FD9E3A900C7893F /* BinTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29691021FD9E3A900C7893F /* BinTreeNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D21A0E391FA9917E00732F1C /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		D21A0E3B1FA9919500732F1C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D23183081FB2E2190096DBAC /* DeviceTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTVCell.swift; sourceTree = "<group>"; };
+		D29691021FD9E3A900C7893F /* BinTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinTreeNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +117,9 @@
 				81CE76F61F9A9024003819E9 /* DecodeViewController.swift */,
 				D21A0E391FA9917E00732F1C /* ConnectViewController.swift */,
 				D21A0E3B1FA9919500732F1C /* ChatViewController.swift */,
-				81CE76FB1F9A9025003819E9 /* Assets.xcassets */,
 				81CE76F81F9A9024003819E9 /* Main.storyboard */,
+				81CE76FB1F9A9025003819E9 /* Assets.xcassets */,
+				D29691021FD9E3A900C7893F /* BinTreeNode.swift */,
 				D212E0571FC79AC100E87377 /* MPCManager.swift */,
 				D23183081FB2E2190096DBAC /* DeviceTVCell.swift */,
 				81CE76FD1F9A9025003819E9 /* LaunchScreen.storyboard */,
@@ -288,6 +291,7 @@
 				D212E0581FC79AC100E87377 /* MPCManager.swift in Sources */,
 				D21A0E3C1FA9919500732F1C /* ChatViewController.swift in Sources */,
 				D21A0E3A1FA9917E00732F1C /* ConnectViewController.swift in Sources */,
+				D29691031FD9E3A900C7893F /* BinTreeNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

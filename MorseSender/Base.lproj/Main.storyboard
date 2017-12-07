@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqK-Kj-Ng3">
-                                <rect key="frame" x="25" y="73" width="322" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqK-Kj-Ng3">
+                                <rect key="frame" x="25" y="101" width="322" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,18 +43,28 @@
                                     <action selector="decode:" destination="kGb-Jb-m0o" eventType="touchUpInside" id="4Fc-W0-qby"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-ea-2OD">
+                                <rect key="frame" x="163" y="399" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clear:" destination="kGb-Jb-m0o" eventType="touchUpInside" id="Gny-QY-09Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Decode" image="first" id="qbv-Ft-0P6"/>
                     <connections>
+                        <outlet property="clear" destination="zLW-ea-2OD" id="uLp-Jh-70d"/>
                         <outlet property="decodeBtn" destination="Ere-GR-hva" id="wUV-OG-E2v"/>
+                        <outlet property="decoded" destination="CqK-Kj-Ng3" id="6u5-f3-vMk"/>
                         <outlet property="redBtn" destination="but-2N-6vt" id="xAg-ah-rIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Te-oR-Sn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10" y="678"/>
+            <point key="canvasLocation" x="8.8000000000000007" y="677.81109445277366"/>
         </scene>
         <!--ConnectVC-->
         <scene sceneID="0gB-VY-jGo">
